@@ -265,7 +265,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://127.0.0.1:8000/api/get_parking")
+      .get("http://api.nebula.eclipseweb.co/api/get_parking")
       .then(
         (response) => (
           (this.automoviles = response.data.parkings_a),
@@ -302,14 +302,17 @@ export default {
       this.form.document_number =
         document.getElementById("document_number").value;
       axios
-        .get("http://127.0.0.1:8000/api/validate_user/" + this.document_number)
+        .get(
+          "http://api.nebula.eclipseweb.co/api/validate_user/" +
+            this.document_number
+        )
         .then((response) => {
           if (response.data.code == 404) {
             this.form_new = true;
             this.form.document_number =
               document.getElementById("document_number").value;
             axios
-              .get("http://127.0.0.1:8000/api/get_vehicle_type")
+              .get("http://api.nebula.eclipseweb.co/api/get_vehicle_type")
               .then((response) => {
                 this.types = response.data.vehiclesTypes;
               });
@@ -321,13 +324,16 @@ export default {
     },
     submitForm() {
       if (this.plate_exist != null) {
-        axios.post("http://127.0.0.1:8000/api/store_parking_with_plate", {
-          vehicle_plate: this.plate_exist,
-          random: this.form.random,
-        });
+        axios.post(
+          "http://api.nebula.eclipseweb.co/api/store_parking_with_plate",
+          {
+            vehicle_plate: this.plate_exist,
+            random: this.form.random,
+          }
+        );
       } else {
         axios
-          .post("http://127.0.0.1:8000/api/create_user", this.form)
+          .post("http://api.nebula.eclipseweb.co/api/create_user", this.form)
           .then((response) => {
             location.reload();
             if (response.data.code == 422) {
@@ -362,7 +368,7 @@ export default {
 
     finishParking() {
       axios
-        .post("http://127.0.0.1:8000/api/finish_ticket", {
+        .post("http://api.nebula.eclipseweb.co/api/finish_ticket", {
           id_parking: this.form.parking_number_selected,
         })
         .then((response) => {

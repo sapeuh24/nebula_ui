@@ -58,7 +58,7 @@ export default {
   },
   mounted() {
     axios
-      .post("http://127.0.0.1:8000/api/get_parking_more_used", {
+      .post("http://api.nebula.eclipseweb.co/api/get_parking_more_used", {
         today: "yes",
       })
       .then((response) => {
@@ -68,7 +68,7 @@ export default {
   methods: {
     getParkingMoreUsed() {
       axios
-        .post("http://127.0.0.1:8000/api/get_parking_more_used", {
+        .post("http://api.nebula.eclipseweb.co/api/get_parking_more_used", {
           from: this.fechaInicio,
           to: this.fechaFin,
         })

@@ -60,7 +60,7 @@ export default {
   },
   mounted() {
     axios
-      .post("http://127.0.0.1:8000/api/get_tickets_by_vehicle_type", {
+      .post("http://api.nebula.eclipseweb.co/api/get_tickets_by_vehicle_type", {
         today: "yes",
       })
       .then((response) => {
@@ -70,10 +70,13 @@ export default {
   methods: {
     getParkingMoreUsed() {
       axios
-        .post("http://127.0.0.1:8000/api/get_tickets_by_vehicle_type", {
-          from: this.fechaInicio,
-          to: this.fechaFin,
-        })
+        .post(
+          "http://api.nebula.eclipseweb.co/api/get_tickets_by_vehicle_type",
+          {
+            from: this.fechaInicio,
+            to: this.fechaFin,
+          }
+        )
         .then((response) => {
           this.parking = response.data.tickets;
           console.log(this.parking);

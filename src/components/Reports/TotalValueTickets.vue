@@ -56,7 +56,7 @@ export default {
   },
   mounted() {
     axios
-      .post("http://127.0.0.1:8000/api/get_total_value_tickets", {
+      .post("http://api.nebula.eclipseweb.co/api/get_total_value_tickets", {
         today: "yes",
       })
       .then((response) => {
@@ -66,7 +66,7 @@ export default {
   methods: {
     getTotalValueTickets() {
       axios
-        .post("http://127.0.0.1:8000/api/get_total_value_tickets", {
+        .post("http://api.nebula.eclipseweb.co/api/get_total_value_tickets", {
           from: this.fechaInicio,
           to: this.fechaFin,
         })

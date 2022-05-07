@@ -52,7 +52,7 @@ export default {
   methods: {
     submitForm() {
       axios
-        .post("http://127.0.0.1:8000/api/create_discount", {
+        .post("http://api.nebula.eclipseweb.co/api/create_discount", {
           discount: this.discount,
           minutes: this.minutes,
         })

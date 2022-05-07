@@ -98,7 +98,7 @@ export default {
   methods: {
     UpdateList() {
       axios
-        .get("http://127.0.0.1:8000/api/get_vehicle_type/")
+        .get("http://api.nebula.eclipseweb.co/api/get_vehicle_type/")
         .then((response) => {
           this.rates = response.data.vehiclesTypes;
         });
@@ -110,7 +110,10 @@ export default {
     },
     submitEditForm() {
       axios
-        .post("http://127.0.0.1:8000/api/edit_vehicle_type", this.data_item)
+        .post(
+          "http://api.nebula.eclipseweb.co/api/edit_vehicle_type",
+          this.data_item
+        )
         .then((response) => {
           this.UpdateAlert(response.data.message);
         })
