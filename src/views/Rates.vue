@@ -98,7 +98,7 @@ export default {
   methods: {
     UpdateList() {
       axios
-        .get("http://api.nebula.eclipseweb.co/api/get_vehicle_type/")
+        .get("http://api.nebula.eclipseweb.co/api/get_vehicle_type")
         .then((response) => {
           this.rates = response.data.vehiclesTypes;
         });

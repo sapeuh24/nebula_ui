@@ -124,7 +124,7 @@ export default {
   methods: {
     UpdateList() {
       axios
-        .get("http://api.nebula.eclipseweb.co/api/get_discount/")
+        .get("http://api.nebula.eclipseweb.co/api/get_discount")
         .then((response) => {
           this.discounts = response.data.discounts;
         });
