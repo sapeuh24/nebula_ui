@@ -123,9 +123,11 @@ export default {
   },
   methods: {
     UpdateList() {
-      axios.get("http://127.0.0.1:8000/api/get_discount/").then((response) => {
-        this.discounts = response.data.discounts;
-      });
+      axios
+        .get("http://api.nebula.eclipseweb.co/api/get_discount/")
+        .then((response) => {
+          this.discounts = response.data.discounts;
+        });
     },
     UpdateAlert(message) {
       this.alert =
@@ -134,7 +136,10 @@ export default {
     },
     submitEditForm() {
       axios
-        .post("http://127.0.0.1:8000/api/edit_discount", this.data_item)
+        .post(
+          "http://api.nebula.eclipseweb.co/api/edit_discount",
+          this.data_item
+        )
         .then((response) => {
           this.UpdateAlert(response.data.message);
         })
@@ -144,7 +149,7 @@ export default {
     },
     detele(id) {
       axios
-        .post("http://127.0.0.1:8000/api/delete_discount", { id: id })
+        .post("http://api.nebula.eclipseweb.co/api/delete_discount", { id: id })
         .then((response) => {
           this.UpdateAlert(response.data.message);
         })
